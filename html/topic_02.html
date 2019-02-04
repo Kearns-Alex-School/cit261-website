@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Topic 2: JavaScript Objects</title>
+        <link href="../css/style.css" type="text/css" rel="stylesheet">
+        <script src="../js/topic_02.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="header">
-            <h1 align="left">CIT 261: Mobile Application Development - JavaScript Objects</h1>
+            <h1>CIT 261: Mobile Application Development - JavaScript Objects</h1>
         </div>
 
         <div class="navigation">
@@ -17,42 +19,230 @@
 
         <div class="main">
             <h3>Object Creation Functions</h3>
-                <p><button id="b_create">Create</button> an object.</p>
+                <p>To create a JavaScript object is very similar to how we create a variable.</p>
+
+                <div class="code"><span style="color:green">// litteral syntax</span>
+var shape1 = { };
+
+<span style="color:green">// Constructor syntax</span>
+var shape2 = new Object();</div>
+
+                <button id="b_create" class="code" onclick="createFunction()">Run</button>
                 <p id="create_results"></p>
 
             <h3>Properties</h3>
-                <p><button id="b_retrieve">Retrieve</button> the hard coded object 'shape1' and show the properties.</p>
+                <p>Properties are like a collection of variavbles inside of an object. Each is defined using a Key:Value pair syntax.</p>
+
+                <div class="code">var shape1 = { 
+<span style="color:green">//  key      : value</span>
+    name     : "Square",        <span style="color:green">// string</span>
+    length   : 5,               <span style="color:green">// number</span>
+    height   : 10,              <span style="color:green">// number</span>
+    color    : "Red",           <span style="color:green">// string</span>
+    favorite : true,            <span style="color:green">// boolean</span>
+    extra    : { },             <span style="color:green">// object</span>
+    sides    : [5, 10, 5, 10],  <span style="color:green">// array (number)</span>
+    area     : function () {    <span style="color:green">// function (number)</span>
+        return this.height * this.length;
+    }
+};</div>
+
+                <p>To access the values that are inside the property happens in one of two different ways:</p>
+
+                <div class="code"><span style="color:green">// 1st example - ( Variable.Key    )</span>
+shape1.name
+
+<span style="color:green">// 2nd example - ( Variable["Key"] )</span>
+shape1["length"]</div>
+
+                <p>Retriving the properties allows us to to lots of things. A simple example will be creating a string that will tell us what values are inside the object that we create:</p>
+
+                <div class="code"><span style="color:green">// retrive data from our object</span>
+var result =
+    'shape1 is a ' + shape1.name + '&ltbr&gt' +
+    'It is ' + shape1["length"] + 'x' + shape1["height"] + ' with an area of: ' + shape1.area() + '&ltbr&gt' +
+    'Try to picture a ' + shape1.color + ' one right now!';</div>
+
+                <button id="b_retrieve" class="code" onclick="retrieve()">Run</button>
                 <p id="retrieve_results"></p>
 
             <h3>Methods</h3>
-                <p><button id="b_methods">Run</button> the results of methods </p>
+                <p>A method is a built-in function that can be called from a variable. They are accessed by using a '.' after the variable name and then the name of the method along with any parameters it may need.</p>
+
+                <div class="code"><span style="color:green">// ( Variable.Method(&ltparameters&gt) )</span>
+shape1.toUpperCase();</div>
+
+                <p>Here we are using the method "toUpperCase" which will take the variable that is calling it and transform it into ALL CAPS. Notice the "(" and ")" after the method name. Inside of the parenthese is where any needed parameters would go.</p>
+
+                <div class="code"><span style="color:green">// retrive data from our object and make name and color CAPS</span>
+var result =
+    'shape1 is a ' + shape1.name.toUpperCase() + '&ltbr&gt' +
+    'It is ' + shape1["length"] + 'x' + shape1["height"] + ' with an area of: ' + shape1.area() + '&ltbr&gt' +
+    'Try to picture a ' + shape1.color.toUpperCase() + ' one right now!';</div>
+
+                <button id="b_methods" class="code" onclick="methods()">Run</button>
                 <p id="methods_results"></p>
 
             <h3>Inheritance</h3>
-                <p><button id="b_inheritance">Copy</button> shape1 to a new object</p>
+                <p>Methods allow the programmer to utilize a seires of statements with one line. Imagine we wanted to duplicate our shape1 object. We would have to:</p>
+
+                <ol>
+                    <li>Make a new object</li>
+                    <li>Assign a property and value</li>
+                    <li>Repeat until all properties have been copied</li>
+                </ol>
+
+                <p>If we are dealing with a single property then it is not that big of an issue, but once we reach 30 properties or even creating 30 object copies we now have 900 lines of code just to copy. Instead, we have a method from the Object type that handles all of this...and it is only one line of code!</p>
+
+                <div class="code"><span style="color:green">// make a copy that inherits everything from shape1</span>
+shape1copy = Object.create(shape1);</div>
+
+                <p>Notice how .create takes a single object parameter "shape1". This method then copies everything for us and returns the copied object that will be assigned into our object. We can then test out if we have all of the same property values:</p>
+
+                <div class="code"><span style="color:green">// retrive data from our COPIED object</span>
+var result = 
+    'shape1copy is a ' + shape1copy.name + '&ltbr&gt' +
+    'It is ' + shape1copy["length"] + 'x' + shape1copy["height"] + ' with an area of: ' + shape1copy.area() + '&ltbr&gt' +
+    'Try to picture a ' + shape1copy.color + ' one right now!' + '&ltbr&gt';
+
+<span style="color:green">// prove that they are the same</span>
+if (shape1.length == shape1copy.length) {
+    result = result + 'They ARE the same!';
+}
+else {
+    result = result + 'They are NOT the same!';
+}</div>
+
+                <button id="b_inheritance" class="code" onclick="inheritance()">Run</button>
                 <p id="inheritance_results"></p>
 
             <h3>Instantiation</h3>
+                <p>We can also create functions that return objects to better manage our code. The is done one of four different ways but will always have the same output. Each way also has its own pros and cons.</p>
+
                 <h4>Functional</h4>
-                    <p><button id="b_functional">Functional</button></p>
+                    <p>We create a single function that we can call that does everything inside of that function. Once it is done the creation function will return the object to the caller.</p>
+
+                    <div class="code"><span style="color:green">// call Shape1 with the passed in parameters.</span>
+var myShape = Shape1('Square', 10, 5, 'Red');</div>
+
+                    <div class="code"><span style="color:green">// shape1 function</span>
+var Shape1 = function(name, length, height, color) {
+    var obj = { };
+
+    <span style="color:green">// .key    = value</span>
+    obj.name   = name;
+    obj.length = length;
+    obj.height = height;
+    obj.color  = color;
+
+    <span style="color:green">// functions</span>
+    obj.area = function() {
+        return length * height;
+    }
+
+    obj.perimeter = function() {
+        return (2 * length) + (2 * height);
+    }
+
+    <span style="color:green">// return our object to the caller</span>
+    return obj;
+}
+                    </div>
+
+                    <button id="b_functional" class="code" onclick="functional()">Run</button>
                     <p id="functional_results"></p>
 
                 <h4>Functional-Shared</h4>
-                    <p><button id="b_functionalshared">Functional-Shared</button></p>
+                    <p>Inside of our create function we can call another method that is specific to adding the functions to our object. This uses a for loop through an object of functions and add them to the object that is being created.</p>
+
+                    <div class="code"><span style="color:green">// our object that holds all of our functions</span>
+var obj2Methods = {
+    area      : function() {
+        return this.length * this.height;
+    },
+    perimeter : function() {
+        return (2 * this.length) + (2 * this.height);
+    }
+}</div>
+
+                    <div class="code"><span style="color:green">// add the passed in function object to the passed in object</span>
+var extend = function(obj, methods) {
+    for (var key in methods) {
+        obj[key] = methods[key];
+    }
+}</div>
+
+                    <div class="code"><span style="color:green">// shape2 function</span>
+var Shape2 = function(name, length, height, color) {
+    var obj = { };
+
+    <span style="color:green">// .key    = value</span>
+    obj.name   = name;
+    obj.length = length;
+    obj.height = height;
+    obj.color  = color;
+
+    <span style="color:green">// call our extend() to add the functions</span>
+    extend(obj, obj2Methods);
+
+    <span style="color:green">// return our object to the caller</span>
+    return obj;
+}</div>
+
+                    <button id="b_functionalshared" class="code" onclick="functionalshared()">Run</button>
                     <p id="functionalshared_results"></p>
 
                 <h4>Prototypal</h4>
-                    <p><button id="b_prototypal">Prototypal</button></p>
+                    <p>This method utilizes the prototype chain to create objects. Inside of our create function we will start by using the .create method on our object that contains all of the functions.</p>
+
+                    <div class="code"><span style="color:green">// shape3 function</span>
+var Shape3 = function(name, length, height, color) {
+    var obj = Object.create(obj3Methods);
+
+    <span style="color:green">// .key    = value</span>
+    obj.name   = name;
+    obj.length = length;
+    obj.height = height;
+    obj.color  = color;
+
+    <span style="color:green">// return our object to the caller</span>
+    return obj;
+}</div>
+
+                    <button id="b_prototypal" class="code" onclick="prototypal()">Run</button>
                     <p id="prototypal_results"></p>
 
                 <h4>Pseudoclassical</h4>
-                    <p><button id="b_pseudoclassical">Pseudoclassical</button></p>
+                    <p>This last method makes use of the key word "new" and the prototype chain. Because we use the "new" keyword, each property needs to use the "this" keyword. "this" referece to 'this current instance'. No object is needed to be passed back to the caller.</p>
+
+                    <div class="code"><span style="color:green">// call a new Shape4 with the passed in parameters</span>
+var myShape = new Shape4('Square', 10, 5, 'Red');</div>
+
+                    <div class="code"><span style="color:green">// shape4 function</span>
+var Shape4 = function(name, length, height, color) {
+    <span style="color:green">//  .key    = value</span>
+    this.name   = name;
+    this.length = length;
+    this.height = height;
+    this.color  = color;
+}</div>
+
+                    <div class="code"><span style="color:green">// function attachment</span>
+Shape4.prototype.area = function() {
+    return this.length * this.height;
+}
+
+Shape4.prototype.perimeter = function() {
+    return (2 * this.length) + (2 * this.height);
+}</div>
+
+                    <button id="b_pseudoclassical" class="code" onclick="pseudoclassical()">Run</button>
                     <p id="pseudoclassical_results"></p>
         </div>
 
         <div class="footer">
             <hr>
-            <p align="center">Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
+            <p>Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
             <hr>
         </div>
     </body>

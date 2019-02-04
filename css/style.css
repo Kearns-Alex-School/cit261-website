@@ -1,0 +1,70 @@
+/*
+ *  Elements
+ */
+body {
+    background-color: rgb(145, 145, 145);
+    font-family: monospace;
+}
+
+p {
+    max-width: 60ch;
+}
+
+/*
+ *  Classes 
+ *  [ .<classname> ]
+ */
+div.code {
+    font-size: 12pt;
+    font-family: courier new;
+    color:rgb(255, 255, 255);
+    width: 60ch;
+    min-width: 60ch;
+    max-height: 11em;
+    background-color: #000000;
+    overflow-x: auto;
+    padding: 5px 5px 5px 5px;
+    border: solid 2px #dce6f0;
+    border-radius: 0.5rem;
+    white-space: pre-wrap;
+    resize: horizontal;
+}
+
+button.code {
+    font-size: 12pt;
+    font-family: courier new;
+    border-radius: 0.5rem;
+    margin-top: 5px;
+}
+
+p.result {
+    color:rgb(255, 255, 255);
+    font-size: 12pt;
+    font-family: courier new;
+    border: solid 2px #dce6f0;
+    border-radius: 0.5rem;
+    background-color: #2b7c24;
+    padding: 5px 5px 5px 5px;
+    min-width: 60ch;
+    margin-top: 5px;
+}
+
+.header {
+    text-align: left;
+}
+
+/*.main {
+    max-width: 66ch;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+.footer p {
+    max-width: initial;
+    text-align: center;
+}
+
+/*
+ *  IDs
+ *  [ #<idname> ]
+ */
