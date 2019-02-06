@@ -25,14 +25,47 @@ function example3() {
     // set up our variables
     var firstname = document.getElementById("first_name");
     var lastname = document.getElementById("last_name");
+    var color = document.getElementsByName("color");
+    var htmlresults = document.getElementById("example3_results");
+
+    for (var index = 0, length = color.length; index < length; index++) {
+        if (color[index].checked) {
+            if (color[index].value == 'custom') {
+                var red = document.getElementById("r_amount").value;
+                var green = document.getElementById("g_amount").value;
+                var blue = document.getElementById("b_amount").value;
+
+                // check to see if we have valid numbers
+                if (!validRGB(red) || !validRGB(green) || !validRGB(blue)) {
+                    // notify the user
+
+                    return;
+                }
+
+                htmlresults.style.color = "rgb(" + red + ',' + green + ',' + blue + ')';
+            }
+            else {
+                htmlresults.style.color = color[index].value;
+            }
+        }
+    }
 
     // grab the values from the elements
-    var results = 
-    firstname.value + ' ' + lastname.value;
+    var results = firstname.value + ' ' + lastname.value;
 
     // set the results to the HTML element
-    document.getElementById("example3_results").innerHTML = 
-    results;
+    htmlresults.innerHTML = results;
 
-    document.getElementById("example3_results").classList.add("result");
+    // check to see if we already added the result class
+    if (!htmlresults.classList.contains("result")) {
+        htmlresults.classList.add("result");
+    }
+}
+
+function validRGB(value) {
+    if (value < 0 || 255 < value) {
+        return false;
+    }
+
+    return true;
 }

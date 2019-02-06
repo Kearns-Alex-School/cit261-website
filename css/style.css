@@ -53,10 +53,18 @@ p.result {
 div.user_input {
     font-weight: bold;
     font-size: 15pt;
+    width: 100%;
 }
 
 .text_input {
     border-radius: 0.5rem;
+    padding-left: 5px;
+}
+
+.number_input {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+    width: 5ch;
 }
 
 .hide {

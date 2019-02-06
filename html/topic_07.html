@@ -50,10 +50,26 @@ document.getElementById("step2").classList.remove("hide")</div>
 document.getElementById("step2").classList.remove("hide")</div>
                 
                 <div class="user_input">
-                    First Name:<br>
-                    <input type="text" id="first_name" class="text_input"><br>
-                    Last Name:<br>
-                    <input type="text" id="last_name" class="text_input">
+                    <table style="width:60ch">
+                        <tr>
+                            <td>
+                                First Name:<br>
+                                <input type="text" id="first_name" class="text_input"><br>
+                                Last Name:<br>
+                                <input type="text" id="last_name" class="text_input">
+                            </td>
+                            <td>
+                                Favorite Color:<br>
+                                <input type="radio" name="color" value="white" checked="checked">White<br>
+                                <input type="radio" name="color" value="red">Red<br>
+                                <input type="radio" name="color" value="blue">Blue<br>
+                                <input type="radio" name="color" value="custom">R:<input type="text" id="r_amount" class="number_input bg_red">
+                                    G:<input type="text" id="g_amount" class="number_input bg_green">
+                                    B:<input type="text" id="b_amount" class="number_input bg_blue">
+                            </td>
+                        </tr>
+                    </table>
+
                 </div>
                 
                 <button id="b_example3" class="code" onclick="example3()">Run</button>
