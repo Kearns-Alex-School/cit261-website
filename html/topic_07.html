@@ -44,10 +44,7 @@ document.getElementById("step2").classList.remove("hide")</div>
             </div>
 
             <div id="step3" class="hide">
-                <p>You can even use some user input to help modify your elements. Try it below! (do not worry, I promise the button will not disappear this time) Here is the JavaScript code that we will be using:</p>
-
-                <div class="code"><span style="color:green">// remove the 'hide' class</span>
-document.getElementById("step2").classList.remove("hide")</div>
+                <p>You can even use some user input to help modify your elements. Try it below! (do not worry, I promise the button will not disappear this time)</p>
                 
                 <div class="user_input">
                     <table style="width:60ch">
@@ -63,9 +60,9 @@ document.getElementById("step2").classList.remove("hide")</div>
                                 <input type="radio" name="color" value="white" checked="checked">White<br>
                                 <input type="radio" name="color" value="red">Red<br>
                                 <input type="radio" name="color" value="blue">Blue<br>
-                                <input type="radio" name="color" value="custom">R:<input type="text" id="r_amount" class="number_input bg_red">
-                                    G:<input type="text" id="g_amount" class="number_input bg_green">
-                                    B:<input type="text" id="b_amount" class="number_input bg_blue">
+                                <input type="radio" name="color" value="custom">R:<input type="number" id="r_amount" class="number_input_XXX bg_red" value="0" max="255">
+                                    G:<input type="number" id="g_amount" class="number_input_XXX bg_green" value="0" max="255">
+                                    B:<input type="number" id="b_amount" class="number_input_XXX bg_blue" value="0" max="255">
                             </td>
                         </tr>
                     </table>
@@ -73,6 +70,7 @@ document.getElementById("step2").classList.remove("hide")</div>
                 </div>
                 
                 <button id="b_example3" class="code" onclick="example3()">Run</button>
+                <p class="error hide" id="rgb_error">* Please input numbers less than 256</p>
                 
                 <p id="example3_results"></p>
 

@@ -30,6 +30,7 @@ function example3() {
 
     for (var index = 0, length = color.length; index < length; index++) {
         if (color[index].checked) {
+            var error_element = document.getElementById("rgb_error");
             if (color[index].value == 'custom') {
                 var red = document.getElementById("r_amount").value;
                 var green = document.getElementById("g_amount").value;
@@ -38,15 +39,24 @@ function example3() {
                 // check to see if we have valid numbers
                 if (!validRGB(red) || !validRGB(green) || !validRGB(blue)) {
                     // notify the user
+                    console.log(error_element.classList)
 
+                    error_element.classList.remove("hide");
+                    htmlresults.classList.add("hide");
                     return;
+                }
+                else {
+                    error_element.classList.add("hide");
                 }
 
                 htmlresults.style.color = "rgb(" + red + ',' + green + ',' + blue + ')';
             }
             else {
+                error_element.classList.add("hide");
                 htmlresults.style.color = color[index].value;
             }
+
+            htmlresults.classList.remove("hide");
         }
     }
 

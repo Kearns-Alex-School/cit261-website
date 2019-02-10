@@ -50,6 +50,12 @@ p.result {
     margin-top: 5px;
 }
 
+p.error {
+    color: rgb(172, 6, 6);
+    font-size: 10pt;
+    margin-top: 0px;
+}
+
 div.user_input {
     font-weight: bold;
     font-size: 15pt;
@@ -61,14 +67,35 @@ div.user_input {
     padding-left: 5px;
 }
 
-.number_input {
+.number_input_XXX {
     border-radius: 0.5rem;
     padding-left: 5px;
-    width: 5ch;
+    width: 6ch;
+}
+
+.number_input_XXXX {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+    width: 7ch;
 }
 
 .hide {
     display: none;
+}
+
+.bg_red {
+    background-color: red;
+    color: white;
+}
+
+.bg_blue {
+    background-color: blue;
+    color: white;
+}
+
+.bg_green {
+    background-color: green;
+    color: white;
 }
 
 .header {
