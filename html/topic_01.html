@@ -31,40 +31,52 @@
             <h1>Enter up to 10 characters!</h1>
             <p id="remaining_slots">Character slots remaining: 10</p>
 
-            <table>
+            <table class="user_input">
                 <tr>
-                    <th>
-                        Name
-                    </th>
+                    <th>Name</th>
                     <td>
                         <input type="text" name="name" id="name" class="text_input">
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        Race
-                    </th>
+                    <th>Race</th>
                     <td>
                         <input type="text" name="race" id="race" class="text_input">
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        Birth Year
-                    </th>
+                    <th>Birth Year</th>
                     <td>
                         <input type="number" name="birth" id="birth" class="number_input_XXXX" max="3000" min="1900" value="1990">
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        
-                    </th>
+                    <th>Battle Cry</th>
                     <td>
-                        
+                        <input type="text" name="cry" id="cry" class="text_input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Live Through the War</th>
+                    <td>
+                        <select name="live" id="live">
+                            <option value="yes" selected="selected"> Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <button name="submit" id="submit" onClick="submit()" class="code">Add</button>
                     </td>
                 </tr>
             </table>
+
+            <div class="results">
+                <p class="hide" id="result"></p>
+            </div>
+            
         </div>
 
         <div class="footer">
