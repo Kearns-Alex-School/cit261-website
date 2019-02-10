@@ -19,14 +19,65 @@
 
         <div class="main">
             <h3>Manipulate Using JavaScript</h3>
-            <p>BEGIN</p>
 
-            <div class="code">
+            <div id="step1">
+                <p>One of the cool things that you can do with JavaScript is manipulate differnet elements on the page. This can be done with user input as buttons or text. Some of these pages have buttons that do some of this already. Here is an example of the most basic one use on this site:</p>
+
+                <div class="code"><span style="color:green">// hide the button</span>
+    document.getElementById("b_create").style.display = "none"; </div>
+    
+                <button id="b_example1" class="code" onclick="example1()">Run</button>
+                
+                <p id="example1_results" class="hide">As you can tell, the button is gone!<br><br>But that is not all that happened...</p>
+            </div>
+
+            <div id="step2" class="hide">
+                <p>As you can tell, I am now visable to let you know what is going to happen next! In addition to removing the button from our sight, we now see a new text box (once again, similar to ones that you have seen on this site already). This is all possible because of JavaScript.</p>
+
+                <div class="code"><span style="color:green">// remove the 'hide' class</span>
+document.getElementById("step2").classList.remove("hide")</div>
+                <p>What this does is find the element with the id of 'step2' and remove the class 'hide' from its list. It does not have to be limited to a single element. Just like this step, the id is attached a div element which hides all of the children elements. Go ahead! Run the next code!</p>
+
+                <button id="b_example2" class="code" onclick="example2()">Run</button>
+                
+                <p id="example2_results" class="hide">Thank you!! Moving on.</p>
+            </div>
+
+            <div id="step3" class="hide">
+                <p>You can even use some user input to help modify your elements. Try it below! (do not worry, I promise the button will not disappear this time) Here is the JavaScript code that we will be using:</p>
+
+                <div class="code"><span style="color:green">// remove the 'hide' class</span>
+document.getElementById("step2").classList.remove("hide")</div>
+                
+                <div class="user_input">
+                    <table style="width:60ch">
+                        <tr>
+                            <td>
+                                First Name:<br>
+                                <input type="text" id="first_name" class="text_input"><br>
+                                Last Name:<br>
+                                <input type="text" id="last_name" class="text_input">
+                            </td>
+                            <td>
+                                Favorite Color:<br>
+                                <input type="radio" name="color" value="white" checked="checked">White<br>
+                                <input type="radio" name="color" value="red">Red<br>
+                                <input type="radio" name="color" value="blue">Blue<br>
+                                <input type="radio" name="color" value="custom">R:<input type="text" id="r_amount" class="number_input bg_red">
+                                    G:<input type="text" id="g_amount" class="number_input bg_green">
+                                    B:<input type="text" id="b_amount" class="number_input bg_blue">
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                
+                <button id="b_example3" class="code" onclick="example3()">Run</button>
+                
+                <p id="example3_results"></p>
 
             </div>
 
-            <button id="b_create" class="code" onclick="createFunction()">Run</button>
-            
         </div>
 
         <div class="footer">

@@ -35,6 +35,7 @@ button.code {
     font-family: courier new;
     border-radius: 0.5rem;
     margin-top: 5px;
+    color: #000000;
 }
 
 p.result {
@@ -47,6 +48,27 @@ p.result {
     padding: 5px 5px 5px 5px;
     min-width: 60ch;
     margin-top: 5px;
+}
+
+div.user_input {
+    font-weight: bold;
+    font-size: 15pt;
+    width: 100%;
+}
+
+.text_input {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+}
+
+.number_input {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+    width: 5ch;
+}
+
+.hide {
+    display: none;
 }
 
 .header {
