@@ -84,6 +84,11 @@ table.user_input th{
     width: 7ch;
 }
 
+.select_input {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+}
+
 .hide {
     display: none;
 }
