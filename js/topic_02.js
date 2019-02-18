@@ -314,25 +314,110 @@ Shape4.prototype.perimeter = function() {
 }
 
 /*
- * Update
+ * Update 1
  */
 
 var ShapeExample = function(name, numSides, length) {
-    this.name = name;
-    this.numSides = numSides;
-    this.length = length;
+    this.name = name.toUpperCase();
+    this.numSides = Number(numSides);
+    this.length = Number(length);
 
-
+    switch (this.numSides) {
+        case 3:
+            this.area = TriArea(this.length);
+            break;
+        case 4:
+            this.area = SquareArea(this.length);
+            break;
+        case 5:
+            this.area = PentaArea(this.length);
+            break;
+        case 6:
+            this.area = HexaArea(this.length);
+            break;
+        case 7:
+            this.area = HeptaArea(this.length);
+            break;
+        case 8:
+            this.area = OctaArea(this.length);
+            break;
+        case 9:
+            this.area = NonaArea(this.length);
+            break;
+        case 10:
+            this.area = DecaArea(this.length);
+            break;
+    }
 }
 
 ShapeExample.prototype.perimeter = function() {
     return this.length * this.numSides;
 }
 
+function TriArea(length) {
+    var a = b = c = length;
+
+    return (0.25 * Math.sqrt( (a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c) ));
+}
+
+function SquareArea(length) {
+    var a = b = length;
+
+    return (a * b);
+}
+
+function PentaArea(length) {
+    var a = length;
+
+    return (0.25 * Math.sqrt( 5 * (5 + 2 * Math.sqrt(5))) * (a * a));
+}
+
+function HexaArea(length) {
+    var a = length;
+
+    return (((3 * Math.sqrt(3)) / 2) * (a * a));
+}
+
+function HeptaArea(length) {
+    var a = length;
+
+    return (((a * a) * 7) / (4 * Math.tan(Math.PI/7)));
+}
+
+function OctaArea(length) {
+    var a = length;
+
+    return (2 * (1 + Math.sqrt(2)) * (a * a));
+}
+
+function NonaArea(length) {
+    var a = length;
+
+    return ((a * a) * 9) / (4 * Math.tan(Math.PI/9));
+}
+
+function DecaArea(length) {
+    var a = length;
+
+    return ((5/2) * (a * a) * Math.sqrt(5 + 2 * Math.sqrt(5)));
+}
+
 function parameter() {
-    var name = document.getElementById("shape").innerHTML;
+    var sel = document.getElementById("shape");
+
+    var name = sel.options[sel.selectedIndex].text;
     var numSides = document.getElementById("shape").value;
     var length = document.getElementById("length").value;
+    var result = "";
 
     var objShape = new ShapeExample(name, numSides, length);
+
+    result = 
+    'A ' + objShape.name + ' has ' + objShape.numSides + ' sides. <br>' +
+    'With your length of ' + objShape.length + '  ... <br>' +
+    'Area: ' + objShape.area + '<br>' +
+    'Perimeter: ' + objShape.perimeter() + '<br>';;
+
+    document.getElementById("calculate_results").innerHTML = result;
+    document.getElementById("calculate_results").classList.add("result");
 }
