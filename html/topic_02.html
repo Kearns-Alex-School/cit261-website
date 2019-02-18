@@ -92,7 +92,7 @@ var result =
                     <li>Repeat until all properties have been copied</li>
                 </ol>
 
-                <p>If we are dealing with a single property then it is not that big of an issue, but once we reach 30 properties or even creating 30 object copies we now have 900 lines of code just to copy. Instead, we have a method from the Object type that handles all of this...and it is only one line of code!</p>
+                <p>If we are dealing with a single property then it is not that big of an issue, but once we reach 30 properties or even creating 30 object copies we now have 900 lines of code just to copy. Instead, we have a method from the Object type that handles all of this...and it is only one line of code! This allows us to have a base object that we can start with (say a human) that holds the basic properties like gender, race, heigth, etc. Then if we are a boy or girl we can add other properties in addition.</p>
 
                 <div class="code"><span style="color:green">// make a copy that inherits everything from shape1</span>
 shape1copy = Object.create(shape1);</div>
@@ -238,6 +238,42 @@ Shape4.prototype.perimeter = function() {
 
                     <button id="b_pseudoclassical" class="code" onclick="pseudoclassical()">Run</button>
                     <p id="pseudoclassical_results"></p>
+        </div>
+
+        <hr>
+        <h1>Update 1</h1>
+
+        <div class="user_input">
+            <table style="width:60ch">
+                <tr>
+                    <td>Shape:</td>
+                    <td>
+                        <select class="select_input" id="shape">
+                            <option value="3">Triangle</option>
+                            <option value="4">Square</option>
+                            <option value="5">Pentagon</option>
+                            <option value="6">Hexagon</option>
+                            <option value="7">Heptagon</option>
+                            <option value="8">Octagon</option>
+                            <option value="9">Nonagon</option>
+                            <option value="10">Decagon</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Side Length:</td>
+                    <td>
+                        <input class="number_input_XXXX" type="number" id="length">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="code" onclick="parameter()">Calculate</button>
+                    </td>
+                </tr>
+            </table>
+            <p id="calculate_results"></p>
         </div>
 
         <div class="footer">

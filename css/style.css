@@ -72,6 +72,12 @@ table.user_input th{
     padding-left: 5px;
 }
 
+.number_input_XX {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+    width: 5ch;
+}
+
 .number_input_XXX {
     border-radius: 0.5rem;
     padding-left: 5px;

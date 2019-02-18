@@ -294,7 +294,6 @@ function pseudoclassical() {
     document.getElementById("pseudoclassical_results").classList.add("result");
 
     document.getElementById("b_pseudoclassical").style.display = "none";
-        
 }
 
 var Shape4 = function(name, length, height, color) {
@@ -312,4 +311,28 @@ Shape4.prototype.area = function() {
 
 Shape4.prototype.perimeter = function() {
     return (2 * this.length) + (2 * this.height);
+}
+
+/*
+ * Update
+ */
+
+var ShapeExample = function(name, numSides, length) {
+    this.name = name;
+    this.numSides = numSides;
+    this.length = length;
+
+
+}
+
+ShapeExample.prototype.perimeter = function() {
+    return this.length * this.numSides;
+}
+
+function parameter() {
+    var name = document.getElementById("shape").innerHTML;
+    var numSides = document.getElementById("shape").value;
+    var length = document.getElementById("length").value;
+
+    var objShape = new ShapeExample(name, numSides, length);
 }
