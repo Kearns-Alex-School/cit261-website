@@ -35,10 +35,10 @@ function updateTable() {
         '<th colspan="4">' + creatureData.type + '</th>' +
     '</tr>' +
     '<tr>' + 
-        '<td style="text-align:center; width:30%;"><h3>Emotions</h3></td>' +
-        '<td style="text-align:center; width:30%;><h3>Sounds</h3></td>' +
-        '<td style="text-align:center; width:20%;><h3>Legs</h3></td>' +
-        '<td style="text-align:center; width:20%;><h3>Rating</h3></td>' +
+        '<td width="30%" style="text-align:center;"><h3>Emotions</h3></td>' +
+        '<td width="30%" style="text-align:center;"><h3>Sounds</h3></td>' +
+        '<td width="20%" style="text-align:center;"><h3>Legs</h3></td>' +
+        '<td width="20%" style="text-align:center;"><h3>Rating</h3></td>' +
     '</tr>' +
     '<tr>' +
         '<td>' +
