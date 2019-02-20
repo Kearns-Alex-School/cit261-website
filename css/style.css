@@ -71,6 +71,12 @@ table.user_input th{
     font-size: 15pt;
 }
 
+table.information_results {
+    font-size: 15;
+    text-align: center;
+    padding: 5px;
+}
+
 .text_input {
     border-radius: 0.5rem;
     padding-left: 5px;
