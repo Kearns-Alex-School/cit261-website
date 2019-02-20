@@ -28,7 +28,10 @@ function updateTable() {
     var creatureData = Data.creatures[select.value];
 
     table.innerHTML = 
-    '<tr><th>' + creatureData.type + '</th></tr>'
+    '<tr><th>' + creatureData.type + '</th></tr>' +
+    '<tr>' + 
+        '<th>Emotions</th><th>Sounds</th><th>Legs</th><th>Rating</th>' +
+    '</tr>'
     ;
 
     table.classList.remove("hide");
