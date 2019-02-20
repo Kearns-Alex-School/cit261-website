@@ -72,6 +72,7 @@ table.user_input th{
 }
 
 table.information_results {
+    margin-top: 10px;
     width: 60ch;
     min-width: 60ch;
     border: 1px solid black
