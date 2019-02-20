@@ -28,7 +28,9 @@ function updateTable() {
 
     var creatureData = Data.creatures[select.value];
 
-    table.innerHTML = 
+    var newHTML = ""
+
+    newHTML = 
     '<tr>' +
         '<th>' + creatureData.type + '</th>' +
     '</tr>' +
@@ -44,10 +46,10 @@ function updateTable() {
 
     // add list of emotions
     creatureData.emotions.forEach(function(element) {
-        table.innerHTML += '<li>'+ element + '</li>';
+        newHTML += '<li>'+ element + '</li>';
     });
 
-    table.innerHTML += 
+    newHTML += 
             '</ul>' +
         '</td>' + 
         '<td>' +
@@ -55,25 +57,26 @@ function updateTable() {
 
     // add list of sounds
     creatureData.sounds.forEach(function(element) {
-        table.innerHTML += '<li>'+ element + '</li>';
+        newHTML += '<li>'+ element + '</li>';
     });
 
-    table.innerHTML += 
+    newHTML += 
             '</ul>' +
         '</td>' + 
         '<td>';
 
     // add the legs
-    table.innerHTML += 
+    newHTML += 
             creatureData.legs + 
         '</td>' +
         '<td>';
 
     // add the rating
-    table.innerHTML += 
+    newHTML += 
             creatureData.rating + 
         '</td>' +
     '</tr>';
 
+    table.innerHTML = newHTML;
     table.classList.remove("hide");
 }
