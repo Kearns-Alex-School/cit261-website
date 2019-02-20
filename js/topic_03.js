@@ -22,5 +22,14 @@ request.onload = function() {
 }
 
 function updateTable() {
-    
+    var table = document.getElementById("information");
+    var select = document.getElementById("userSelect");
+
+    var creatureData = Data.creatures[select.value];
+
+    table.innerHTML = 
+    '<tr><th>' + creatureData.type + '</th></tr>'
+    ;
+
+    table.classList.remove("hide");
 }
