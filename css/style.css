@@ -72,6 +72,11 @@ table.user_input th{
 }
 
 table.information_results {
+    width: 60ch;
+    min-width: 60ch;
+}
+
+table.information_results th{
     font-size: 15pt;
     text-align: center;
     padding: 5px;
