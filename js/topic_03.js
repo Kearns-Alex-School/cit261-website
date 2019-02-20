@@ -14,11 +14,12 @@ request.onload = function() {
 
     for (var index = 0; index < Data.creatures.length; index++) {
         var option = document.createElement("option");
-        //var option = new Option (Data.creatures[index].type, index);
         option.text = Data.creatures[index].type;
         option.value = index;
         select.add(option);
     }
+
+    select.selectedIndex = -1;
 }
 
 function updateTable() {
@@ -31,8 +32,28 @@ function updateTable() {
     '<tr><th>' + creatureData.type + '</th></tr>' +
     '<tr>' + 
         '<th>Emotions</th><th>Sounds</th><th>Legs</th><th>Rating</th>' +
-    '</tr>'
-    ;
+    '</tr>' +
+    '<tr><td><ul>';
+
+    // add list of emotions
+    creatureData.emotions.forEach(function(element) {
+        table.innerHTML += '<li>'+ element + '</li>';
+    });
+
+    table.innerHTML += '</ul></td><td><ul>';
+
+    // add list of sounds
+    creatureData.sounds.forEach(function(element) {
+        table.innerHTML += '<li>'+ element + '</li>';
+    });
+
+    table.innerHTML += '</ul></td><td>';
+
+    // add the legs
+    table.innerHTML += creatureData.legs + '</td><td>';
+
+    // add the rating
+    table.innerHTML += creatureData.rating + '</td>';
 
     table.classList.remove("hide");
 }
