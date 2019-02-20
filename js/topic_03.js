@@ -32,7 +32,7 @@ function updateTable() {
 
     newHTML = 
     '<tr>' +
-        '<th>' + creatureData.type + '</th>' +
+        '<th colspan="4">' + creatureData.type + '</th>' +
     '</tr>' +
     '<tr>' + 
         '<th>Emotions</th>' +
