@@ -74,10 +74,12 @@ table.user_input th{
 table.information_results {
     width: 60ch;
     min-width: 60ch;
+    border: 1px solid black
 }
 
 table.information_results th{
     font-size: 15pt;
+    text-align: center;
     padding: 5px;
 }
 
