@@ -13,9 +13,10 @@ request.onload = function() {
     var select = document.getElementById("select");
 
     for (var index = 0; index < Data.creatures.length; index++) {
-        var option = document.createElement("option");
-        option.text = Data.creatures[index].type;
-        option.value = index;
+        //var option = document.createElement("option");
+        var option = new Option (Data.creatures[index].type, index);
+        //option.text = Data.creatures[index].type;
+        //option.value = index;
         select.add(option);
     }
 }
