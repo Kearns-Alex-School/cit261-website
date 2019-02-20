@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Topic 3: JSON</title>
+        <link href="../css/style.css" type="text/css" rel="stylesheet">
+        <script src="../js/topic_03.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="header">
-            <h1 align="left">CIT 261: Mobile Application Development - JSON</h1>
+            <h1>CIT 261: Mobile Application Development - JSON</h1>
         </div>
 
         <div class="navigation">
@@ -16,13 +18,22 @@
         </div>
 
         <div class="main">
-            <h3>Parse</h3>
-            <h3>Stringify</h3>
+            <h2>Learn about a creature!</h2>
+            <p>Select from the dropdown and read from the table all of the information about the creature.</p>
+            <p class = "disclaimer">This is all of the opinion of the web designer.</p>
+
+            <select class="select_input" onchange="updateTable()" id="userSelect">
+
+            </select>
+
+            <table class="results" id="information">
+
+            </table>
         </div>
 
         <div class="footer">
             <hr>
-            <p align="center">Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
+            <p>Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
             <hr>
         </div>
     </body>

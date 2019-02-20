@@ -1,0 +1,80 @@
+{
+    "creatures": [
+        {
+            "type":"Human",
+            "emotions": [
+                "Happy",
+                "Sad",
+                "Angry",
+                "Scared"
+            ],
+            "sounds": [
+                "Laughter",
+                "Cry",
+                "Screaming"
+            ],
+            "legs": 2,
+            "rating": 4
+        },
+        {
+            "type":"Cat",
+            "emotions": [
+                "Not impressed",
+                "Mellow",
+                "Supper Angry"
+            ],
+            "sounds": [
+                "Meow",
+                "Hiss",
+                "Purr"
+            ],
+            "legs": 4,
+            "rating" : 10
+        },
+        {
+            "type":"Dog",
+            "emotions": [
+                "Happy",
+                "Sad",
+                "HAPPY",
+                "EXCITED"
+            ],
+            "sounds": [
+                "Woof",
+                "Bark",
+                "Howel"
+            ],
+            "legs": 4,
+            "rating": 8
+        },
+        {
+            "type":"Mouse",
+            "emotions": [
+                "Scared"
+            ],
+            "sounds": [
+                "Squeek",
+                "..."
+            ],
+            "legs": 2,
+            "rating": 0
+        },
+        {
+            "type":"Bird",
+            "emotions": [
+                "Happy",
+                "Sad",
+                "Angry",
+                "Scared"
+            ],
+            "sounds": [
+                "Tweet",
+                "Squack",
+                "Whistle",
+                "Flutter"
+            ],
+            "legs": 2,
+            "rating": 7
+        }
+    ]
+}
