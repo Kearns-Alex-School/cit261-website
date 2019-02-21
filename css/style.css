@@ -84,6 +84,13 @@ table.information_results th{
     padding: 5px;
 }
 
+table.information_results td{
+    font-size: 10pt;
+    text-align: left;
+    padding: 2px;
+    margin: 2px;
+}
+
 .text_input {
     border-radius: 0.5rem;
     padding-left: 5px;

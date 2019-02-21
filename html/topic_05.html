@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Topic 5: Local Storage</title>
+        <link href="../css/style.css" type="text/css" rel="stylesheet">
+        <script src="../js/topic_05.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="header">
-            <h1 align="left">CIT 261: Mobile Application Development - Local Storage</h1>
+            <h1>CIT 261: Mobile Application Development - Local Storage</h1>
         </div>
 
         <div class="navigation">
@@ -17,10 +19,165 @@
 
         <div class="main">
             <h3>API</h3>
+            <p>The API that is associated with local storage is the Web Storage API. This is broken down into two different catagories:</p>
+
+            <ol>
+                <li>sessionStorage</li>
+                <li>localStorage</li>
+            </ol>
+
+            <div class="code">myStorage = window.sessionStorage;</div>
+
+            <p>Both Session Storage and Local Storage come with 4 main functions that we can call to save, retrieve, and delete the data. the difference between these two is that Session Storage keeps the data around as long as the browser is open. Once it is closed, that data is deleted. Local Storage is the exact same things except when you close the browser the data stays. This way when you open the browser again, that data is once again accessable.</p>
+
+            <p>The 4 functions are:</p>
+
+            <ul>
+                <li>setItem()</li>
+                <li>getItem()</li>
+                <li>removeItem()</li>
+                <li>clear()</li>
+            </ul>
+
             <h3>Storing and Retrieving Simple Data</h3>
+            <p>To store simple data is easy as calling the setItem() function.</p>
+
+            <div class="code"><span style="color:green">// first we are going to create the data we want to save</span>
+sessionStorage.setItem('color', 'red');
+
+<span style="color:green">// these way do the same thing as well</span>
+
+<span style="color:green">// sessionStorage.color = 'red';</span>
+<span style="color:green">// sessionStorage['color'] = 'red';</span>
+
+<span style="color:green">// next we will retrive the data</span>
+result.innerHTML = 
+'Our stored color is: ' + sessionStorage.getItem('color');</div>
+
+            <button id="b_example1" class="code" onclick="example1()">Run</button>
+                
+            <p id="example1_results" class="hide"></p>
+
             <h3>Storing and Retrieving Arrays</h3>
+            <p>The same can be done with arrays.</p>
+
+            <div class="code"><span style="color:green">// first we are going to create the data we want to save</span>
+var arraySet = [1, 2, 3];
+
+<span style="color:green">// we have to store arrays as a JSON object</span>
+sessionStorage.setItem('array', JSON.stringify(arraySet));
+
+<span style="color:green">// next we will retrive the data</span>
+var storedData = sessionStorage.getItem('array');
+var newArray = '';
+
+<span style="color:green">// check to see that we have data</span>
+if (storedData) {
+    newArray = JSON.parse(storedData);
+}
+else {
+    alert("There is no stored data.");
+    return;
+}
+
+<span style="color:green">// now we need to loop through and get all items</span>
+var text = '';
+var length = newArray.length;
+for (var index = 0; index &lt length; index++) {
+    text += ' ' + newArray[index];
+}
+
+result.innerHTML = 
+'Our stored array is:' + text;</div>
+                
+            <button id="b_example2" class="code" onclick="example2()">Run</button>
+                
+            <p id="example2_results" class="hide"></p>
+
             <h3>Storing and Retrieving Associative Arrays</h3>
+            <p>You guessed it, we can also do it with Associative Arrays.</p>
+
+            <div class="code"><span style="color:green">// first we are going to create the data we want to save</span>
+var associative = {
+    'A':65,
+    'B':66,
+    'C':66,
+    'D':67,
+    'E':68,
+    'F':69,
+    'G':70
+};
+
+<span style="color:green">// we have to store arrays as a JSON object</span>
+sessionStorage.setItem('array', JSON.stringify(associative));
+
+<span style="color:green">// next we will retrive the data</span>
+var storedData = sessionStorage.getItem('array');
+var newAssociative = '';
+
+<span style="color:green">// check to see that we have data</span>
+if (storedData) {
+    newAssociative = JSON.parse(storedData);
+}
+else {
+    alert("There is no stored data.");
+    return;
+}
+
+<span style="color:green">// test our our value</span>
+result.innerHTML = 
+'The index "D" is: ' + newAssociative.D;</div>
+                                
+            <button id="b_example3" class="code" onclick="example3()">Run</button>
+                
+            <p id="example3_results" class="hide"></p>
+
             <h3>Storing and Retrieving Objects</h3>
+            <p>Want to get really complex? We can do Objects as well.</p>
+
+            <div class="code"><span style="color:green">// first we are going to create the data we want to save</span>
+var data = {
+    "type":"Human",
+    "emotions": [
+        "Happy",
+        "Sad",
+        "Angry",
+        "Scared"
+    ],
+    "sounds": [
+        "Laughter",
+        "Crying",
+        "screaming"
+    ],
+    "legs": 2,
+};
+
+<span style="color:green">// we have to store arrays as a JSON object</span>
+sessionStorage.setItem('object', JSON.stringify(data));
+
+<span style="color:green">// next we will retrive the data</span>
+var storedData = sessionStorage.getItem('object');
+var newObject = '';
+
+<span style="color:green">// check to see that we have data</span>
+if (storedData) {
+    newObject = JSON.parse(storedData);
+}
+else {
+    alert("There is no stored data.");
+    return;
+}
+
+<span style="color:green">// test our our value</span>
+result.innerHTML = 
+'The ' + newObject.type + ' is a ' + newObject.legs + 
+' legged creature. During the semester, they are ' + 
+newObject.emotions[1] + ' and love ' + newObject.sounds[1] + ' a lot.';</div>
+                                
+            <button id="b_example4" class="code" onclick="example4()">Run</button>
+                
+            <p id="example4_results" class="hide"></p>
+
         </div>
 
         <div class="footer">
