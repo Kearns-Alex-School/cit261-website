@@ -1,3 +1,11 @@
+window.onload = function() {
+    if (localStorage.getItem("name") !== null) {
+        document.getElementById("greeting").innerText = 
+        "Welcome back " + localStorage.getItem("name") + "! [see? we remembered you.]";
+        
+    }
+}
+
 function storageAvailable() {
     // initial check to see if we can use the storage.
     if (typeof(Storage) !== "undefined") {
@@ -179,4 +187,32 @@ function example4() {
 
     // hide the button
     document.getElementById("b_example4").style.display = "none";
+}
+
+function submit() {
+    var name = document.getElementById("name").value;
+
+    validate(name);
+}
+
+function validate(name) {
+
+    if(name === "" ) {
+        alert("All fields needs to be filled in.");
+        return false;
+    }
+
+    saveData(name);
+
+    return true;
+}
+
+function saveData(name) {
+    // add our data to our storage 
+    localStorage.setItem("name", name);
+}
+
+function removeData() {
+    localStorage.clear();
+    sessionStorage.clear();
 }

@@ -17,6 +17,8 @@
             <a href="topic_06.html">Next</a>
         </div>
 
+        <p id="greeting"></p>
+
         <div class="main">
             <h3>API</h3>
             <p>The API that is associated with local storage is the Web Storage API. This is broken down into two different catagories:</p>
@@ -177,12 +179,47 @@ newObject.emotions[1] + ' and love ' + newObject.sounds[1] + ' a lot.';</div>
             <button id="b_example4" class="code" onclick="example4()">Run</button>
                 
             <p id="example4_results" class="hide"></p>
+        </div>
 
+        <hr>
+        
+        <div>
+            <table class="user_input" id="input_table">
+                <tr>
+                    <th>
+                        Name:
+                    </th>
+                    <td>
+                        <input type="text" name="name" id="name" class="text_input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Color:
+                    </th>
+                    <td>
+                        <select>
+                            <option value="red" selected="selected">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        
+                    </th>
+                    <td>
+                        <button name="submit" id="submit" onClick="submit()" class="code">Add</button>
+                        <button name="clear" id="clear" onClick="removeData()" class="code">Clear</button>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div class="footer">
             <hr>
-            <p align="center">Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
+            <p>Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
             <hr>
         </div>
     </body>
