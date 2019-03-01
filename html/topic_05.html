@@ -17,8 +17,6 @@
             <a href="topic_06.html">Next</a>
         </div>
 
-        <p id="greeting"></p>
-
         <div class="main">
             <h3>API</h3>
             <p>The API that is associated with local storage is the Web Storage API. This is broken down into two different catagories:</p>
@@ -183,7 +181,10 @@ newObject.emotions[1] + ' and love ' + newObject.sounds[1] + ' a lot.';</div>
 
         <hr>
         
-        <div>
+        <div id="users_area">
+            
+            <p id="greeting"></p>
+
             <table class="user_input" id="input_table">
                 <tr>
                     <th>
@@ -198,7 +199,7 @@ newObject.emotions[1] + ' and love ' + newObject.sounds[1] + ' a lot.';</div>
                         Color:
                     </th>
                     <td>
-                        <select>
+                        <select id="color" class="select_input">
                             <option value="red" selected="selected">Red</option>
                             <option value="blue">Blue</option>
                             <option value="green">Green</option>
@@ -206,12 +207,50 @@ newObject.emotions[1] + ' and love ' + newObject.sounds[1] + ' a lot.';</div>
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        
-                    </th>
                     <td>
-                        <button name="submit" id="submit" onClick="submit()" class="code">Add</button>
+                        <button name="submit" id="submit" onClick="submit()" class="code">Save</button>
+                    </td>
+                    <td>
                         <button name="clear" id="clear" onClick="removeData()" class="code">Clear</button>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="friends" id="friend_table">
+                <tr>
+                    <th>
+                        Local Friends
+                    </th>
+                    <th>
+                        Session Friends
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="lfriend" id="lfriend" class="text_input"><br>
+
+                        <button name="lsubmit" id="lsubmit" onClick="addLocalFriend()" class="code">Add</button>
+
+                        <button name="lremove" id="lremove" onClick="removeLocalFriend()" class="code">Remove</button>
+                    </td>
+                    <td>
+                        <input type="text" name="sfriend" id="sfriend" class="text_input"><br>
+
+                        <button name="ssubmit" id="ssubmit" onClick="addSessionFriend()" class="code">Add</button>
+                        
+                        <button name="sremove" id="sremove" onClick="removeSessionFriend()" class="code">Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="llist">
+
+                        </ul>
+                    </td>
+                    <td>
+                        <ul id="slist">
+                            
+                        </ul>
                     </td>
                 </tr>
             </table>

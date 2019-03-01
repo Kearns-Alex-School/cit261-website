@@ -1,8 +1,22 @@
 window.onload = function() {
     if (localStorage.getItem("name") !== null) {
+        var name = localStorage.getItem("name");
+        var color = localStorage.getItem("color");
+
+
         document.getElementById("greeting").innerText = 
-        "Welcome back " + localStorage.getItem("name") + "! [see? we remembered you.]";
+        "Welcome back " + name + "! [see? we remembered you.]";
         
+        document.getElementById("users_area").style.backgroundColor = localStorage.getItem("color");
+
+        document.getElementById("name").value = name;
+        document.getElementById("color").value = color;
+        
+        var slist = document.getElementById("slist");
+        var llist = document.getElementById("llist");
+
+        updateFriends(sessionStorage, slist);
+        updateFriends(localStorage, llist);
     }
 }
 
@@ -191,28 +205,138 @@ function example4() {
 
 function submit() {
     var name = document.getElementById("name").value;
+    var color = document.getElementById("color").value;
 
-    validate(name);
+    validate(name, color);
 }
 
-function validate(name) {
-
+function validate(name, color) {
     if(name === "" ) {
         alert("All fields needs to be filled in.");
         return false;
     }
 
-    saveData(name);
+    saveData(name, color);
+
+    // update any visuals
+    var personal = document.getElementById("users_area");
+    personal.style.backgroundColor = color;
 
     return true;
 }
 
-function saveData(name) {
+function saveData(name, color) {
     // add our data to our storage 
     localStorage.setItem("name", name);
+    localStorage.setItem("color", color);
+}
+
+function addSessionFriend() {
+    var name = document.getElementById("sfriend").value;
+    var list = document.getElementById("slist");
+
+    addFriend(sessionStorage, name);
+    updateFriends(sessionStorage, list);
+
+    document.getElementById("sfriend").value = '';
+}
+
+function addLocalFriend() {
+    var name = document.getElementById("lfriend").value;
+    var list = document.getElementById("llist");
+
+    addFriend(localStorage, name);
+    updateFriends(localStorage, list);
+
+    document.getElementById("lfriend").value = '';
+}
+
+function addFriend(storage, name) {
+    if(name.value === "" ) {
+        alert("All fields needs to be filled in.");
+        return false;
+    }
+
+    if (storage.getItem("friends") === null) {
+        storage.friends = JSON.stringify([]);
+    }
+
+    // next we will retrive the data
+    var storedData = storage.getItem('friends');
+    var friends = [];
+
+    // check to see that we have data
+    if (storedData) {
+        friends = JSON.parse(storedData);
+    }
+
+    friends.push(name);
+
+    storage.setItem('friends', JSON.stringify(friends));
+}
+
+function removeSessionFriend() {
+    var name = document.getElementById("sfriend").value;
+    var list = document.getElementById("slist");
+
+    removeFriend(sessionStorage, name);
+    updateFriends(sessionStorage, list);
+
+    document.getElementById("sfriend").value = '';
+}
+
+function removeLocalFriend() {
+    var name = document.getElementById("lfriend").value;
+    var list = document.getElementById("llist");
+
+    removeFriend(localStorage, name);
+    updateFriends(localStorage, list);
+
+    document.getElementById("lfriend").value = '';
+}
+
+function removeFriend(storage, name) {
+    var storedData = storage.getItem('friends');
+    var friends = [];
+
+    // check to see that we have data
+    if (storedData) {
+        friends = JSON.parse(storedData);
+    }
+
+    var length = friends.length;
+
+    for( var index = 0; index < length; index++){ 
+        if ( friends[index] === name) {
+            friends.splice(index, 1); 
+        }
+    }
+
+    storage.setItem('friends', JSON.stringify(friends));
+}
+
+function updateFriends(storage, list) {
+    var text = '';
+
+    var storedData = storage.getItem('friends');
+    var friends = [];
+
+    // check to see that we have data
+    if (storedData) {
+        friends = JSON.parse(storedData);
+    }
+
+    var length = friends.length;
+    for (var index = 0; index < length; index++) {
+        text += '<li>' + friends[index] + '</li>';
+    }
+
+    list.innerHTML = text;
 }
 
 function removeData() {
     localStorage.clear();
     sessionStorage.clear();
+
+    location.reload(true);
 }

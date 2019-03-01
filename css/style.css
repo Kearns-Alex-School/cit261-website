@@ -66,7 +66,7 @@ div.user_input {
     width: 100%;
 }
 
-table.user_input th{
+table.user_input th {
     text-align: right;
     font-size: 15pt;
 }
@@ -78,17 +78,40 @@ table.information_results {
     border: 1px solid black
 }
 
-table.information_results th{
+table.information_results th {
     font-size: 15pt;
     text-align: center;
     padding: 5px;
 }
 
-table.information_results td{
+table.information_results td {
     font-size: 10pt;
     text-align: left;
     padding: 2px;
     margin: 2px;
+}
+
+table.friends {
+    width: 82ch;
+    min-width: 82ch;
+    margin: 3px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+
+table.friends th {
+    font-size: 15pt;
+    text-align: center;
+}
+
+table.friends td {
+    /*font-size: 10pt;*/
+    border: 2px solid black;
+    text-align: left;
+    vertical-align: top;
+    padding: 2px;
+    margin: 0px;
+    border-left: 2px solid black
 }
 
 .text_input {
