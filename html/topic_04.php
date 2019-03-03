@@ -9,12 +9,14 @@
     <body>
 
 <?php
-$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+$conn  = sqlsrv_connect(DB_SERVER, DB_CONNINFO);
 
-if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
-
-$database = mysqli_select_db($connection, DB_DATABASE);
-
+if ($conn ) {
+    echo "Connection established.<br />";
+}else{
+     echo "Connection could not be established.<br />";
+     die( print_r( sqlsrv_errors(), true));
+}
 ?>
 
 
