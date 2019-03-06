@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Topic 4: AJAX</title>
         <link href="../css/style.css" type="text/css" rel="stylesheet">
-        <script src="../js/topic_01.js" type="text/javascript"></script>
+        <script src="../js/topic_04.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="header">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="main">
-            <h3>Test out your own HMLT setup.</h3>
+            <h3>Test out your own HTML setup.</h3>
             <p>
                 Everything that you would put inside of the &ltBody&gt tag you can put here in this textbox. Once you do, click the save button. When you have been notified the file was saved, load the file and see the results!
             </p>
@@ -31,8 +31,10 @@
                 </tr>
                 <tr>
                     <td>
+                        <input type="text" name="sname" id="sname" class="text_input">
                         <button name="save" id="save" onClick="save()" class="code">Save</button>
-                        
+                        |
+                        <select type="text" name="lname" id="lname" class="select_input"></select>
                         <button name="load" id="load" onClick="load()" class="code">Load</button>
                     </td>
                 </tr>
@@ -40,7 +42,7 @@
 
             <p id="response"></p>
 
-            <div class="results hide"></div>
+            <div id="results" class="results hide"></div>
         </div>
 
         <div class="footer">

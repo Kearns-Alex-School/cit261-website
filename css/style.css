@@ -1,7 +1,7 @@
 /*
  *  Elements
  */
-body {
+ body {
     background-color: rgb(145, 145, 145);
     font-family: monospace;
 }
@@ -65,8 +65,12 @@ textarea.code {
 }
 
 div.results {
+    width: 60ch;
+    min-width: 60ch;
+    padding: 5px;
     border: solid 2px #dce6f0;
     border-radius: 0.5rem;
+    resize: both;
 }
 
 p.error {
