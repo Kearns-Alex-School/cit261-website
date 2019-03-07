@@ -68,7 +68,6 @@ div.results {
     width: 60ch;
     min-width: 60ch;
     padding: 5px;
-    border: solid 2px #dce6f0;
     border-radius: 0.5rem;
     resize: both;
 }
@@ -114,7 +113,7 @@ table.assignments th {
     text-align: center;
 }
 
-table.assignments td, th {
+table.assignments td, table.assignments th {
     border: 2px solid black;
     padding: 2px;
 }
@@ -129,6 +128,8 @@ table.stored th {
     vertical-align: top;
     font-size: 15px;
     text-align: center;
+    border: 2px solid black;
+    padding: 2px;
 }
 
 table.stored td {
