@@ -87,6 +87,7 @@ div.user_input {
     font-weight: bold;
     font-size: 15pt;
     width: 100%;
+    border-collapse: collapse;
 }
 
 table.user_input th {
@@ -98,7 +99,71 @@ table.information_results {
     margin-top: 10px;
     width: 60ch;
     min-width: 60ch;
-    border: 1px solid black
+    border: 1px solid black;
+}
+
+table.assignments {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+table.assignments th {
+    vertical-align: top;
+    font-size: 15px;
+    text-align: center;
+}
+
+table.assignments td, th {
+    border: 2px solid black;
+    padding: 2px;
+}
+
+table.stored {
+    margin-top: 5px;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+table.stored th {
+    vertical-align: top;
+    font-size: 15px;
+    text-align: center;
+}
+
+table.stored td {
+    border: 2px solid black;
+    cursor: pointer;
+    vertical-align: center;
+    padding: 3px;
+}
+
+table.stored tr:nth-child(odd) {
+    background: rgb(158, 158, 158);
+    transition: 0.5s;
+}
+
+table.stored tr:nth-child(even) {
+    background: rgb(122, 122, 122);
+    transition: 0.5s;
+}
+
+table.stored tr:not(:first-child):hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background: rgb(77, 77, 77);
+}
+
+.close {
+    text-align: center;
+    font-size: 17px;
+    transition: 0.5s;
+}
+  
+.close:hover {
+    background-color: #ff0000;
+    color: white;
+    transition: 0.5s;
 }
 
 table.information_results th {
@@ -133,7 +198,6 @@ table.friends td {
     vertical-align: top;
     padding: 2px;
     margin: 0px;
-    border-left: 2px solid black
 }
 
 .text_input {
@@ -162,6 +226,18 @@ table.friends td {
 .select_input {
     border-radius: 0.5rem;
     padding-left: 5px;
+}
+
+.date_input::-webkit-inner-spin-button {
+    display: none;
+}
+
+.date_input {
+    border-radius: 0.5rem;
+    padding-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 15ch;
 }
 
 .hide {

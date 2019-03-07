@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Topic 6: DOM</title>
+        <link href="../css/style.css" type="text/css" rel="stylesheet">
+        <script src="../js/topic_06.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="header">
-            <h1 align="left">CIT 261: Mobile Application Development - DOM</h1>
+            <h1>CIT 261: Mobile Application Development - DOM</h1>
         </div>
 
         <div class="navigation">
@@ -16,15 +18,52 @@
         </div>
 
         <div class="main">
-            <h3>Manipulation Using createElement</h3>
-            <h3>Manipulation Using appendChild</h3>
-            <h3>Manipulation Using insertBefore</h3>
-            <h3>Manipulation Using removeChild</h3>
+
+            <div class="input">
+                <table class="assignments">
+                    <tr>
+                        <th rowspan="2">Assignment</th>
+                        <th rowspan="2">Due Date</th>
+                        <th rowspan="2">Turn in Date</th>
+                        <th colspan="2">Grade</th>
+                        <th rowspan="2"></th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Score</th>
+                        <td style="text-align: center;">Out of</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="text_input" id="assignment"></td>
+                        <td><input type="date" class="date_input" id="due"></td>
+                        <td><input type="date" class="date_input" id="turnin"></td>
+                        <td><input type="number" class="number_input_XXX" id="score"></td>
+                        <td><input type="number" class="number_input_XXX" id="outof"></td>
+                        <td><button class="code" onclick="newElement()">Add</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <hr>
+
+            <td><button class="code" onclick="clearElement()">Clear Grades</button></td>
+
+            <div class="grade_book">
+                <table class="stored" id="myassignments">
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Due Date</th>
+                        <th>Turn in Date</th>
+                        <th>Score</th>
+                        <th>%</th>
+                        <th>Delete</th>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div class="footer">
             <hr>
-            <p align="center">Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
+            <p>Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
             <hr>
         </div>
     </body>

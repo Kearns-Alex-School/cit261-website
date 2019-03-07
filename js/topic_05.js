@@ -3,7 +3,6 @@ window.onload = function() {
         var name = localStorage.getItem("name");
         var color = localStorage.getItem("color");
 
-
         document.getElementById("greeting").innerText = 
         "Welcome back " + name + "! [see? we remembered you.]";
         
