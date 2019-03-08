@@ -264,18 +264,89 @@ table.friends td {
     text-align: left;
 }
 
-/*.main {
-    max-width: 66ch;
-    margin-left: auto;
-    margin-right: auto;
-}*/
-
 .footer p {
     max-width: initial;
     text-align: center;
+}
+
+.bounce {
+    animation-name: bounce;
+}
+
+.grow {
+    animation-name: grow;
+}
+
+.breathe {
+    animation-name: breathe;
 }
 
 /*
  *  IDs
  *  [ #<idname> ]
  */
+#metronome {
+    width: .5ch;
+    height: 6ch;
+    background-color:#000000;
+    position: relative;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;  
+    animation-timing-function: ease-in-out;
+}
+
+#playlist {
+    list-style: none;
+    padding: 5px;
+    margin: 3px;
+}
+
+#playlist li a {
+    color:#000000;
+}
+
+#playlist .active a{
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
+#breathe {
+    width: 0ch;
+    height: 10ch;
+    position: relative;
+    background-color:#000000;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;  
+    animation-timing-function: ease-in-out;
+}
+
+#breathe_text {
+    font-size: 0ch;
+    text-align: center;
+    animation-duration: 3s;
+  	animation-iteration-count: infinite;
+  	animation-direction: alternate;  
+  	animation-timing-function: ease-in-out;
+ }
+
+/*
+ *  Key Frames
+ *  [ @keyframes <name> ]
+ */
+
+@keyframes bounce {
+    0%   {left:0ch;}
+    100% {left:59.5ch;}
+}
+
+@keyframes grow {
+    0%   {background-color:#00bfff; width:0ch;}
+    100% {background-color:#00ffff; width:60ch;}
+}
+
+@keyframes breathe {
+    0%    {color:#00bfff; font-size: 0ch;}
+    100%  {color:#00ffff; font-size: 7ch;}
+}
