@@ -241,6 +241,25 @@ table.friends td {
     width: 15ch;
 }
 
+.canvas_input {
+    width: 20ch;
+    height: 20ch;
+    border: 1px solid #000000;
+    resize: both;
+}
+
+.paint {
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    width: 60ch;
+    height: 40ch;
+    resize: both;
+}
+
+.color_input {
+    border-radius: 0.5rem;
+}
+
 .hide {
     display: none;
 }

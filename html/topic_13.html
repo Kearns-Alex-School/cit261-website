@@ -39,10 +39,23 @@
             <script>audioPlayer();</script>
 
             <hr>
+            
+            <div class="coloring">
+                <table class="user_input">
+                    <tr>
+                        <th>Color</th>
+                        <td><input type="color" class="color_input" id="color"> </td>
+                        <th>Size</th>
+                        <td><input type="number" class="number_input_XX" id="brush" value="5"></td>
+                    </tr>
+                </table>
+                
+                <div class="paint" id="paint">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+                <script>setupPaint();</script>
 
-            <canvas>
-
-            </canvas>
+            </div>
 
             <hr>
 
@@ -73,15 +86,19 @@
             <hr>
 
             <div class="results">
-                <div id="metronome"></div>
-
-                <hr>
-
-                <div id="breathe"></div>
-
-                <hr>
-
-                <div id="breathe_text">Breathe In</div>
+                <Table>
+                    <tr>
+                        <div id="metronome"></div>
+                        <hr>
+                    </tr>
+                    <tr>
+                        <div id="breathe"></div>
+                        <hr>
+                    </tr>
+                    <tr>
+                        <div id="breathe_text">Breathe In</div>
+                    </tr>
+                </Table>
             </div>
         </div>
 
