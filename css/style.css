@@ -120,20 +120,21 @@ table.assignments td, table.assignments th {
 
 table.stored {
     margin-top: 5px;
-    border-collapse: collapse;
-    border: 2px solid black;
+    border-collapse: separate;
+    border: 1px solid black;
+    border-spacing: 0px;
 }
 
 table.stored th {
     vertical-align: top;
     font-size: 15px;
     text-align: center;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 2px;
 }
 
 table.stored td {
-    border: 2px solid black;
+    border: 1px solid black;
     cursor: pointer;
     vertical-align: center;
     padding: 3px;
@@ -153,6 +154,8 @@ table.stored tr:not(:first-child):hover {
     cursor: pointer;
     transition: 0.5s;
     background: rgb(77, 77, 77);
+    transform: scale(1.05, 1.20);
+    transform: translate(20px, 0px);
 }
 
 .close {
