@@ -69,15 +69,16 @@ function load() {
  * Update 1
  */
 
- function loadWeather() {
+function loadWeather() {
   // Create a request variable and assign a new XMLHttpRequest object to it.
   var request = new XMLHttpRequest()
 
   // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
+  request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?zip=94040&appid=16872869c55bacf84d3ac635e9c25bc6', true)
 
   request.onload = function () {
     // Begin accessing JSON data here
+    console.log(this.response)
     var data = JSON.parse(this.response)
 
     if (request.status >= 200 && request.status < 400) {
