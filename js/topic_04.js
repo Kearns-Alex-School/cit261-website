@@ -72,9 +72,10 @@ function load() {
 function loadWeather() {
   // Create a request variable and assign a new XMLHttpRequest object to it.
   var request = new XMLHttpRequest();
+  var zip = document.getElementById("zip").value;
 
   // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?zip=48111,us&units=imperial&appid=16872869c55bacf84d3ac635e9c25bc6', true);
+  request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?zip=' + zip + ',us&units=imperial&appid=16872869c55bacf84d3ac635e9c25bc6', true);
 
   request.onload = function () {
     // Begin accessing JSON data here
@@ -97,35 +98,46 @@ function loadWeather() {
 function updateResults(data) {
   var table = document.getElementById("weather_results");
 
+  var sunrise = new Date(0);
+  sunrise.setUTCSeconds(data.sys.sunrise);
+
+  var sunset = new Date(0);
+  sunset.setUTCSeconds(data.sys.sunset);
+
   var newHTML = 
   '<tr>' +
+      '<th>Title</th>' +
+      '<th>Data</th>' +
+  '</tr>'+
+  '<tr>' +
       '<th>Location</th>' +
-      '<td>' + '</td>' +
+      '<td>' + data.name + '</td>' +
   '</tr>' +
   '<tr>' +
       '<th>Current</th>' +
-      '<td>' + '</td>' +
+      '<td>' + data.main.temp + ' &#8457</td>' +
   '</tr>' +
   '<tr>' +
       '<th>High/Low</th>' +
-      '<td>' + '</td>' +
+      '<td>' + data.main.temp_max + '/' + data.main.temp_min + ' &#8457</td>' +
   '</tr>' +
   '<tr>' +
       '<th>Humidity</th>' +
-      '<td>' + '</td>' +
+      '<td>' + data.main.humidity + ' %</td>' +
   '</tr>' +
   '<tr>' +
       '<th>Wind Speed</th>' +
-      '<td>' + '</td>' +
+      '<td>' + data.wind.speed +  ' mph</td>' +
   '</tr>' +
   '<th>Sunrise</th>' +
-    '<td>' + '</td>' +
+    '<td>' + sunrise.toLocaleTimeString() + '</td>' +
   '</tr>' +
   '<th>Sunset</th>' +
-    '<td>' + '</td>' +
+    '<td>' + sunset.toLocaleTimeString() + '</td>' +
   '</tr>';
 
   table.innerHTML = newHTML;
+  table.classList.remove("hide");
 }
 
 /******
