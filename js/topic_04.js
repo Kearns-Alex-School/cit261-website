@@ -138,10 +138,56 @@ function updateResults(data) {
 
   table.innerHTML = newHTML;
   table.classList.remove("hide");
+
+  updateCSS(data.main.temp);
+}
+
+function updateCSS(temperature) {
+  var evenColor = "";
+  var oddColor = "";
+
+  if (temperature <= 0) {
+    evenColor = "rgb(102, 0, 255)";
+    oddColor = "rgb(51, 0, 128)";
+  }
+  else if (temperature <= 32) {
+    evenColor = "rgb(0, 153, 255)";
+    oddColor = "rgb(0, 77, 128)";
+  }
+  else if (temperature <= 55) {
+    evenColor = "rgb(0, 255, 0)";
+    oddColor = "rgb(0, 128, 0)";
+  }
+  else if (temperature <= 75) {
+    evenColor = "rgb(255, 255, 0)";
+    oddColor = "rgb(128, 128, 0)";
+  }
+  else if (temperature <= 100) {
+    evenColor = "rgb(255, 153, 0)";
+    oddColor = "rgb(128, 77, 0)";
+  }
+  else {
+    evenColor = "rgb(255, 51, 0)";
+    oddColor = "rgb(128, 26, 0)";
+  }
+
+  var table = document.getElementById("weather_results");
+  var rows = table.getElementsByTagName("tr");
+
+  for(index = 1; index < rows.length; index++) {
+    if(index % 2 == 0) {
+      // even row
+      rows[index].style.background = evenColor;
+    }
+    else {
+      // odd row
+      rows[index].style.background = oddColor;
+    }
+  }
 }
 
 /******
-* Parameters:
+* JSON:
 coord
 coord.lon City geo location, longitude
 coord.lat City geo location, latitude
