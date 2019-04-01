@@ -1,6 +1,6 @@
 <?php
 /* Add an message to the text. */
-$post_user = $_POST['user'];
+/*$post_user = $_POST['user'];
 $post_message = $_POST['message'];
 $post_group = $_POST['group'];
 $timestamp = date("D M d 'y h.i A")." &raquo; ";
@@ -14,5 +14,21 @@ if (!empty($post_user)) {
   fwrite($handle, $txtdata."\n");
   fclose($handle);
   echo $file;
-}
+}*/
+
+$function = $_POST['function'];
+$log = array();
+
+switch($function) {
+  case('getState'):
+    $file = $_POST['group'];
+
+    if(file_exists($file.'.txt')){
+      $lines = file($file.'.txt');
+    }
+    $log['state'] = count($lines);
+    break;
+  }
+
+echo json_encode($log);
 ?>

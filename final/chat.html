@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Messenger Chat</title>
+    <link href="chat.css" type="text/css" rel="stylesheet">
+    <script src="chat.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="entry">
+        <table class="entry">
+            <tr>
+                <th>Name</th>
+                <td>
+                    <input type="text" name="name" id="name" class="text_input" value="Guest">
+                </td>
+            </tr>
+            <tr>
+                <th>Group</th>
+                <td>
+                    <input type="text" name="group" id="group" class="text_input" value="Public">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="enter" class="" onclick="Entry('enter')">Enter</button>
+                    <button id="exit" class="hide" onclick="Entry('exit')">Exit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main hide" id="main">
+        <div id="page-wrap">
+            <h2>PHP Chat</h2>
+          
+            <p id="user_greeting"></p>
+          
+            <div id="chat-wrap">
+                <div id="chat-area">
+        
+                </div>
+            </div>
+          
+            <form id="send-message-area">
+                <p>Your message: </p>
+                <textarea id="sendie"></textarea>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <hr>
+        <p>Alex Kearns<br>&copy; Copyright 2019<br>CIT 261<br>BYU-I</p>
+        <hr>
+    </div>
+
+</body>
+
+<!--script type="text/javascript">
+  // ask user for name with popup prompt    
+  var name = prompt("Enter your chat name:", "Guest");
+
+  // default name is 'Guest'
+  if (!name || name === ' ') {
+    name = "Guest";	
+  }
+
+  document.getElementById("name-area").innerHTML = name;
+
+  //var chat =  new Chat();
+  //setInterval('chat.update()', 1000);
+
+</script-->
+</html>

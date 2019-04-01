@@ -1,0 +1,68 @@
+/*
+ *  Elements
+ */
+ body {
+    background-color: rgb(145, 145, 145);
+    font-family: monospace;
+}
+
+/*
+ *  Classes 
+ *  [ .<classname> ]
+ */
+ .footer p {
+    max-width: initial;
+    text-align: center;
+}
+
+ div.entry {
+    font-size: 12pt;
+    font-family: courier new;
+    color:rgb(255, 255, 255);
+    width: 60ch;
+    min-width: 60ch;
+    max-height: 11em;
+    background-color: #077a8f;
+    overflow-x: auto;
+    padding: 5px 5px 5px 5px;
+    border: solid 2px #dce6f0;
+    border-radius: 0.5rem;
+    white-space: pre-wrap;
+    resize: horizontal;
+}
+
+.hide {
+    display: none;
+}
+
+div.main {
+    font-size: 12pt;
+    font-family: courier new;
+    color:#000000;
+    width: 60ch;
+    min-width: 60ch;
+    background-color: #96cef3;
+    overflow-x: auto;
+    padding: 5px 5px 5px 5px;
+    border: solid 2px #dce6f0;
+    border-radius: 0.5rem;
+    resize: vertical;
+}
+
+button {
+    font-size: 12pt;
+    font-family: courier new;
+    border-radius: 0.5rem;
+    margin-top: 5px;
+    color: #000000;
+}
+
+/*
+ *  IDs
+ *  [ #<idname> ]
+ */
+
+ /*
+ *  Key Frames
+ *  [ @keyframes <name> ]
+ */
