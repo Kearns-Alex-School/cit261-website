@@ -51,6 +51,7 @@ div.main {
 
 button {
     font-size: 12pt;
+    width: 4em;
     font-family: courier new;
     border-radius: 0.5rem;
     margin-top: 5px;
