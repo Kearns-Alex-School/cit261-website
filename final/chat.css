@@ -10,12 +10,12 @@
  *  Classes 
  *  [ .<classname> ]
  */
- .footer p {
+.footer p {
     max-width: initial;
     text-align: center;
 }
 
- div.entry {
+div.entry {
     font-size: 12pt;
     font-family: courier new;
     color:rgb(255, 255, 255);
@@ -58,10 +58,44 @@ button {
     color: #000000;
 }
 
+.container {
+    border: 2px solid #000000;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+.darker {
+    border-color: #000000;
+    background-color: #838383;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+}
+
 /*
  *  IDs
  *  [ #<idname> ]
  */
+ #chat-area {
+    max-height: 20em;
+    overflow-y: auto;
+    border: 2px solid #00ff2a;
+ }
 
  /*
  *  Key Frames
