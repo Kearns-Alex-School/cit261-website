@@ -1,5 +1,19 @@
 window.intervalid = '';
 
+function CheckEnterPressed() {
+  // check for the enterkey
+  var key = window.event.keyCode;
+
+  // If the user has pressed enter
+  if (key === 13) {
+    sendChat();
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
 var chat =  new Chat();
 var instanse = false;
 var state = 0;
@@ -37,7 +51,7 @@ function Entry(funct) {
     
       usergreating.innerHTML = "Welcome " + name.value;
     
-      intervalid = setInterval('chat.update()', 1000);;
+      intervalid = setInterval('chat.update()', 1000);
       break;
     
     case 'exit':
@@ -65,14 +79,14 @@ function Chat () {
 
 //gets the state of the chat
 function getStateOfChat() {
-  var group = document.getElementById("group");
+  var group = document.getElementById("group").value;
 
   if(!instanse){
     instanse = true;
 
     var senddata = 
       'function=getState' +
-      '&group=' + group.value;
+      '&group=' + group;
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -86,7 +100,7 @@ function getStateOfChat() {
 
         console.log('Get state of chat');
       }
-    }
+    };
 
     xmlhttp.open("POST","process.php",true);
 
@@ -98,7 +112,7 @@ function getStateOfChat() {
 
 //Updates the chat
 function updateChat() {
-  var group = document.getElementById("group");
+  var group = document.getElementById("group").value;
   var name = document.getElementById("name").value;
 
   if(!instanse) {
@@ -106,7 +120,7 @@ function updateChat() {
 
     var senddata = 
       'function=update' +
-      '&group=' + group.value + 
+      '&group=' + group + 
       '&state=' + state;
 
     var xmlhttp = new XMLHttpRequest();
@@ -132,7 +146,7 @@ function updateChat() {
             node.classList.add('container');
 
             if (user !== name) {
-              node.classList.add('darker')
+              node.classList.add('darker');
               html = html +
                 '<span class="time-left">' + time + '</span>';
             }
@@ -154,7 +168,7 @@ function updateChat() {
 
         console.log('update Chat');
       }
-    }
+    };
 
     xmlhttp.open("POST","process.php",true);
 
@@ -168,28 +182,36 @@ function updateChat() {
 }
 
 //send the message
-function sendChat(message, nickname) { 
+function sendChat() { 
   updateChat();
+
+  var group = document.getElementById("group").value;
+  var message = document.getElementById("sendie");
+  var name = document.getElementById("name").value;
   
   var senddata = 
     'function=send' +
-    '&group=' + group.value + 
-    '&message=hello' + 
-    '&nickname=alex';
+    '&group=' + group + 
+    '&message=' + message.value + 
+    '&user=' + name;
 
   var xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      var data = JSON.parse(this.responseText);
+
       updateChat();
 
       console.log('send chat');
     }
-  }
+  };
 
   xmlhttp.open("POST","process.php",true);
 
   //Must add this request header to XMLHttpRequest request for POST
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send(senddata);
+
+  message.value = "";
 }
