@@ -1,78 +1,74 @@
 <?php
+// grab what function we are passing in
 $function = $_POST['function'];
 
+// use this to pass back any info to the caller as a JSON
 $log = array();
 
 switch ($function) {
-		/* GET STATE FUNCTION */
-	case ('getState'):
-
-		$file = $_POST['group'];
-
-		if (file_exists($file . '.txt')) {
-			$lines = file($file . '.txt');
-    }
-    else {
-      $log['state'] = 0;
-      $log['test'] = 'does not exist';
-      break;
-    }
-
-		$log['state'] = count($lines);
-	break;
-
 		/* UPDATE FUNCTION */
-	case ('update'):
-		$state = $_POST['state'];
-		$file = $_POST['group'];
+  case ('update'):
+    // grab out current lines so we do not double update
+    $currentLines = $_POST['lines'];
+    
+    // create out file string
+		$file = 'chats/' . $_POST['file'] . '.txt';
 
-		if (file_exists($file . '.txt')) {
-			$lines = file($file . '.txt');
+    // check to see if the file exists
+		if (file_exists($file)) {
+			$fileLines = file($file);
     }
     else {
-      $log['state'] = 0;
+      // send nothing back 
+      $log['lines'] = 0;
       $log['text'] = false;
-      $log['test'] = 'does not exist';
       break;
     }
 
-		$count = count($lines);
+    // get the number of lines in the file
+		$count = count($fileLines);
 
-		if ($state == $count) {
-			$log['state'] = $state;
-			$log['text'] = false;
-		}
-		else {
-			$text = array();
-			$log['state'] = $state + count($lines) - $state;
+    // check to see if we already up to date
+		if ($currentLines == $count) {
+      // send nothing back
+			$log['lines'] = $currentLines;
+      $log['text'] = false;
+      break;
+    }
+    
+    // create our array of lines to add to the chatbox
+    $text = array();
+    
+    // grab all lines that are greater that what we already have
+    foreach ($fileLines as $line_num => $line) {
+      if ($currentLines <= $line_num) {
+        $text[] = $line;
+      }
+    }
 
-			foreach ($lines as $line_num => $line) {
-				if ($line_num >= $state) {
-					$text[] = $line = str_replace("\n", "", $line);
-				}
-			}
-
-			$log['text'] = $text;
-		}
-
-	break;
+    $log['lines'] = $count;
+    $log['text']  = $text;
+	  break;
 
 		/* SEND FUNCTION */
-	case ('send'):
-		$file = $_POST['group'].'.txt';
-		$message = $_POST['message'];
-		$user = $_POST['user'];
+  case ('send'):
+    // set up all of our variables
+		$file      = 'chats/' . $_POST['file'] . '.txt';
+		$message   = $_POST['message'];
+		$user      = $_POST['user'];
 		$timestamp = date("D M d 'y h.i A");
 
-		$txtdata = $user . "|" . $message . "|" . $timestamp;
+    // create our string for the file
+		$txtdata   = $user . "|" . $message . "|" . $timestamp;
 
-    // add an message to the text
+    // check to see if the file exists
     if (file_exists($file)) {
+      // add to the file
 			fwrite(fopen($file, "a") , $txtdata . "\n");
     }
     else {
+      // create a new file
       fwrite(fopen($file, "w") , $txtdata . "\n");
-      $log['file'] = 'trying to write new file';
     }
     
     fclose($file);
@@ -82,5 +78,6 @@ switch ($function) {
 	break;
 }
 
+// send back our JSON array
 echo json_encode($log);
 ?>

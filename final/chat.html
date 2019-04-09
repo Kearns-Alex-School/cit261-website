@@ -8,24 +8,20 @@
 </head>
 
 <body">
-    <div class="entry">
+    <div class="login">
         <table class="entry">
             <tr>
                 <th>Name</th>
-                <td>
-                    <input type="text" name="name" id="name" class="text_input" value="Guest">
-                </td>
+                <td><input type="text" name="user" id="user" class="text_input" value="Guest"></td>
             </tr>
             <tr>
                 <th>Group</th>
-                <td>
-                    <input type="text" name="group" id="group" class="text_input" value="Public">
-                </td>
+                <td><input type="text" name="file" id="file" class="text_input" value="Public"></td>
             </tr>
             <tr>
                 <td>
-                    <button id="enter" class="" onclick="Entry('enter')">Enter</button>
-                    <button id="exit" class="hide" onclick="Entry('exit')">Exit</button>
+                    <button id="login" class="" onclick="Login('login')">Login</button>
+                    <button id="logout" class="hide" onclick="Login('logout')">Logout</button>
                 </td>
             </tr>
         </table>
@@ -34,16 +30,16 @@
     <div class="main hide" id="main">
         <table style="width:100%;">
             <tr>
-                <th><p id="user_greeting"></p></th>
+                <th><p id="greeting"></p></th>
             </tr>
             <tr>
-                <td colspan="2"><div id="chat-area"></div></td>
+                <td colspan="2"><div id="chat"></div></td>
             </tr>
             <tr>
-                <td><p>Message</p><textarea id="sendie" onkeypress="return CheckEnterPressed();"></textarea></td>
+                <td><p>Message</p><textarea id="message" onkeypress="return CheckEnterPressed();"></textarea></td>
             </tr>
             <tr>
-                <td><button id="test" onclick="sendChat()">SEND</button></td>
+                <td><button onclick="SendMessage()">SEND</button></td>
             </tr>
         </table>
     </div>

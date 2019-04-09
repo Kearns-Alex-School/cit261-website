@@ -2,7 +2,7 @@
  *  Elements
  */
  body {
-    background-color: rgb(145, 145, 145);
+    background-color: #919191;
     font-family: monospace;
 }
 
@@ -79,19 +79,19 @@ button {
 
 .time-right {
     float: right;
-    color: #aaa;
+    color: #292929;
 }
 
 .time-left {
     float: left;
-    color: #999;
+    color: #686868;
 }
 
 /*
  *  IDs
  *  [ #<idname> ]
  */
- #chat-area {
+ #chat {
     max-height: 20em;
     overflow-y: auto;
     border: 2px solid #00ff2a;
