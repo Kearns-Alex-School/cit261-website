@@ -1,103 +1,190 @@
 /*
  *  Elements
  */
- body {
-    background-color: #919191;
-    font-family: monospace;
+body {
+	background-color: #919191;
+	font-family: monospace;
 }
 
+textarea {
+	width: 100%;
+	resize: none;
+	margin-top: 0px;
+}
+
+button {
+	font-size: 11pt;
+	border-radius: 0.5rem;
+	float: right;
+	margin-top: 5px;
+	color: #000000;
+}
 /*
  *  Classes 
  *  [ .<classname> ]
  */
-.footer p {
-    max-width: initial;
-    text-align: center;
+.header {
+	text-align: center;
+	font-size: 20pt;
 }
 
-div.entry {
-    font-size: 12pt;
-    font-family: courier new;
-    color:rgb(255, 255, 255);
-    width: 60ch;
-    min-width: 60ch;
-    max-height: 11em;
-    background-color: #077a8f;
-    overflow-x: auto;
-    padding: 5px 5px 5px 5px;
-    border: solid 2px #dce6f0;
-    border-radius: 0.5rem;
-    white-space: pre-wrap;
-    resize: horizontal;
+.header p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.content {
+	max-height: 700px;
+}
+
+.footer {
+	text-align: center;
+}
+
+.login {
+	font-family: courier new;
+	max-width: 261px;
+	background-color: #444444;
+	padding: 3px;
+	border: solid 2px #000000;
+	border-radius: 0.5rem;
+}
+
+.login th {
+	font-size: 18pt;
+	text-align: right;
+}
+
+.option {
+	font-size: 12pt;
+	font-family: courier new;
+	color:#000000;
+	width: 261px;
+	height: 576px;
+	max-height: 576px;
+	background-color: #444444;
+	padding: 3px;
+	border: solid 2px #000000;
+	border-radius: 0.5rem;
+	overflow-y: auto;
+	vertical-align: top;
+}
+
+.chat {
+	vertical-align: bottom;
+	width: 100%;
+	font-size: 12pt;
+	font-family: courier new;
+	color:#000000;
+	background-color: #444444;
+	padding: 3px;
+	border: solid 2px #000000;
+	border-radius: 0.5rem;
 }
 
 .hide {
-    display: none;
+	display: none;
 }
 
-div.main {
-    font-size: 12pt;
-    font-family: courier new;
-    color:#000000;
-    width: 60ch;
-    min-width: 60ch;
-    background-color: #96cef3;
-    overflow-x: auto;
-    padding: 5px 5px 5px 5px;
-    border: solid 2px #dce6f0;
-    border-radius: 0.5rem;
-    resize: vertical;
+.messagebox {
+	border: 2px solid #000000;
+	border-radius: 1.5rem;
+	padding: 10px;
+	margin: 10px 20px;
+	transition: 0.25s;
 }
 
-button {
-    font-size: 12pt;
-    width: 4em;
-    font-family: courier new;
-    border-radius: 0.5rem;
-    margin-top: 5px;
-    color: #000000;
+.messagebox:hover {
+	transition: 0.25s;
+	transform: scale(1.05, 1.20);
 }
 
-.container {
-    border: 2px solid #000000;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  
-.darker {
-    border-color: #000000;
-    background-color: #838383;
+.messagebox p:first-of-type {
+	margin-top: 0px;
+	margin-bottom: 5px;
 }
 
-.container::after {
-    content: "";
-    clear: both;
-    display: table;
+.messagebox p {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.time-right {
-    float: right;
-    color: #292929;
+.messagebox p:last-of-type {
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+.messagebox::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.yours {
+	background-color: #ffffff;
+	color: #000000;
 }
 
 .time-left {
-    float: left;
-    color: #686868;
+	float: left;
+}
+
+.theirs {
+	background-color: #000000;
+	color: #ffffff
+}
+
+.time-right {
+	float: right;
+}
+
+.color_input {
+	border-radius: 0.5rem;
 }
 
 /*
  *  IDs
  *  [ #<idname> ]
  */
- #chat {
-    max-height: 20em;
-    overflow-y: auto;
-    border: 2px solid #00ff2a;
- }
+#user-settings {
+	width: 100%;
+}
 
- /*
+#user-settings tr:hover th {
+	animation-name: shake;
+	animation-duration: .5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;  
+	animation-timing-function: ease-in-out;
+}
+
+#user-settings th {
+	float: left;
+}
+
+#user-settings td {
+	float: right;
+}
+
+#chat {
+	max-height: 494px;
+	padding: 3px;
+	overflow-y: auto;
+	padding-bottom: 15px;
+}
+
+#greeting {
+	text-align: center;
+	font-size: 15pt;
+	margin-bottom: 3px;
+}
+
+/*
  *  Key Frames
  *  [ @keyframes <name> ]
  */
+
+ @keyframes shake {
+	0% { transform: translate3d(0px, 0px, 0px); color:#ffffff;}
+	100% { transform: translate3d(10px, 0px, 0px); color:#ffffff;}
+ }
